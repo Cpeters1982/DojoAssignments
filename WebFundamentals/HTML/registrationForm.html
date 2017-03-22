@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Form</title>
+    <style type="text/css">
+        #basicTextEntryArea{
+            width: 500;
+            display: inline-block;
+        }
+        .basicTextInput{
+            margin-right: 0px;
+
+        }
+        .textInputLabel{
+            width: 90px;
+            display: inline-block;
+        }
+        #textAreaBox{
+            width: 220px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Registration Form</h1>
+    <form>
+        <div id="basicTextEntryArea">
+            <label class="textInputLabel" for="first_Name">First Name:</label>
+            <input class="basicTextInput" type="text" id="first_name" name="first_name">
+            </br>
+            </br>
+            <label class="textInputLabel" for="last_name">Last Name:</label>
+            <input class="basicTextInput" type="text" id="last_name" name="last_name">
+            </br>
+            </br>
+            <label class="textInputLabel" for="email">Email:</label>
+            <input class="basicTextInput" type="text" id="email" name="email">
+            </br>
+            </br>
+            <label class="textInputLabel" for="password">Password:</label>
+            <input class="basicTextInput" type="text" id="password" name="password">
+            </br>
+            </br>
+            <label class="textInputLabel" for="password_confirm">PW Confirm:</label>
+            <input class="basicTextInput" type="text" id="password_confirm" name="password_confirm">
+        </div>
+        </br>
+        </br>
+        <label class="textInputLabel" for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday">
+        </br>
+        </br>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="female">
+        <label for="other">Other</label>
+        <input type="radio" name="gender" value="other">
+        </br>
+        </br>
+        <label for="description">A short description about yourself</br></label>
+        <textarea id="textAreaBox" name="description" id="description"></textarea>
+        </br>
+        </br>
+        <label for="language">Favorite Language:</label>
+        <select name="language" id="language">
+                <option value="javascript">Javascript</option>
+                <option value="python">Python</option>
+                <option value="ruby">Ruby</option>
+                <option value="swift">Swift</option>
+        </select>
+        </br>
+        </br>
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>
