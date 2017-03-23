@@ -1,0 +1,23 @@
+#square{
+    width:200px;
+    height:200px;
+    background-color: blue;
+}
+#circle{
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    background-color: blue;
+}
+#triangle{
+    border-bottom: 200px solid blue;
+    border-right: 109px solid transparent;
+    border-left: 109px solid transparent;
+    display:inline-block;
+}
+#pac-man{
+    border:100px solid blue;
+    border-radius: 50%;
+    border-right-color: transparent;
+    display: inline-block;
+}
