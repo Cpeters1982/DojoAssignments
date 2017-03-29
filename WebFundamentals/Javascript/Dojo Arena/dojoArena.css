@@ -27,6 +27,9 @@
     text-align: center;
     
 }
+div{
+    vertical-align: top;
+}
 h1{
     color:#eca200;
     text-shadow: 1px 2px 0px white;
