@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="dojoArena.css">
+    <script src="https://code.jquery.com/jquery-3.2.0.slim.min.js"></script>
+    <script src="dojoArena.js"></script>
+    <title>Dojo Arena</title>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <div id="select-options">
+            <div id="select-arena">
+                <h1>Select Arena</h1>
+                <button img-src="url(beach.jpg)">beach</button>
+                <button img-src="url(earth.jpg)">planet</button>
+                <button img-src="url(dojo.jpg)">dojo</button>
+                <button img-src="url(forest.jpg)">forest</button>
+                <button img-src="url(matrix.jpg)">matrix</button>
+                <button img-src="url(snow.jpg)">snow</button>
+            </div>
+            <div id="select-player">
+
+                <!--<form>
+                    <input class="target" type="text" value="Field 1">
+                    <select class="target">
+                    <option value="option1" selected="selected">Option 1</option>
+                    <option value="option2">Option 2</option>
+                </select>
+                </form>
+                <div id="other">
+                    Trigger the handler
+                </div>-->
+
+                <h1>Select Players</h1>
+                <select id="left">
+                    <option>Select Player</option>
+                    <option img-src="donny.png" value="Donatello">Donatello</option>
+                    <option img-src="leo.png" value="Leonardo">Leonardo</option>  
+                    <option img-src="raphael.png" value="Raphaelo">Raphaelo</option>
+                    <option img-src="mikey.png" value="Michaelangelo">Michaelangelo</option>
+                </select>
+                <select id="right">
+                    <option>Select Player</option>
+                    <option img-src="donny.png" value="Donatello">Donatello</option>
+                    <option img-src="leo.png" value="Leonardo">Leonardo</option>  
+                    <option img-src="raphael.png" value="Raphaelo">Raphaelo</option>
+                    <option img-src="mikey.png" value="Michaelangelo">Michaelangelo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="image-box" id="left-box"></div>
+        <div class="image-box" id="right-box"></div>
+
+    </div>
+
+</body>
+
+</html>

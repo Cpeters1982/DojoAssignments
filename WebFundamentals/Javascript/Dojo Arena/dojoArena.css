@@ -1,0 +1,58 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+
+#wrapper{
+    font-family: sans-serif;
+    width:1500px;
+    background-color: black;
+    /*background-image: url("beach.jpg");*/
+    border: 10px solid gray;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#select-options{
+    padding: 30px 20px 20px 20px;
+    width: 285px;
+    height: 144px;
+    background-color: #a3a4a6;
+    border: 6px solid gray;
+    border-radius: 13px;
+    margin-top: 250px;
+    margin-left: 500px; 
+    text-align: center;
+    
+}
+h1{
+    color:#eca200;
+    text-shadow: 1px 2px 0px white;
+    font-weight: 400;
+    margin-bottom: 9px; 
+
+}
+button{
+    display: inline-block;
+    border-radius: 4px;
+    width:75px;
+    margin-top: 5px;
+    padding:10px 15px;
+    border:0px;
+    background: white;
+    font-size: .9em;
+
+}
+.image-box{
+    width:200px;
+    height:400px;
+    margin-left: 313px;
+    /*background-color: white;*/
+    display: inline-block;
+
+}
+#select-player{
+    display: none;
+}

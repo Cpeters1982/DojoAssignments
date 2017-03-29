@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="hoverInOut.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("img").hover(
+            function(){
+                console.log("hovered over");
+                $(this).attr("src", $(this).attr("src-2"))
+            },function(){
+                console.log("hovered off");
+                $(this).attr("src", $(this).attr("src-1"))
+            })
+
+        })
+        
+
+    </script>
+    <title>Hover In/Out</title>
+
+</head>
+<body>
+    <img src="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/3039138_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-1="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/3039138_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-2="https://slimages.macysassets.com/is/image/MCY/products/1/optimized/3039141_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" alt="some suit">
+
+    <img src="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/3740148_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-1="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/3740148_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-2="https://slimages.macysassets.com/is/image/MCY/products/0/optimized/3740150_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" alt="some suit">
+
+    <img src="https://slimages.macysassets.com/is/image/MCY/products/0/optimized/3186340_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-1="https://slimages.macysassets.com/is/image/MCY/products/0/optimized/3186340_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-2="https://slimages.macysassets.com/is/image/MCY/products/1/optimized/3186341_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" alt="some suit">
+
+    <img src="https://slimages.macysassets.com/is/image/MCY/products/0/optimized/3761310_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-1="https://slimages.macysassets.com/is/image/MCY/products/0/optimized/3761310_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" src-2="https://slimages.macysassets.com/is/image/MCY/products/7/optimized/3761317_fpx.tif?wid=600&hei=510&fit=fit,1&$filterxlrg$" alt="some suit">
+
+</body>
+</html>
