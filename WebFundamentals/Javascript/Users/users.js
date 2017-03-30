@@ -12,6 +12,7 @@ $(document).ready(function(){
             htmlString += "<td>" + $(this).val() + "</td>"
             // console.log(htmlString);
         });
+        htmlString += "</tr>"
         $("tbody").append(htmlString);
 
         return false;

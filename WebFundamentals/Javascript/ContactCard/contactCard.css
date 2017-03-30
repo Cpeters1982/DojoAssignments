@@ -1,0 +1,44 @@
+#wrapper{
+    padding:10px;
+    font-family: sans-serif;
+    vertical-align: top;
+}
+#add-contact-box{
+    /*text-align: right;*/
+    /*background-color: antiquewhite;*/
+    margin-right: 100px;
+    display: inline-block;
+}
+p{
+    font-size: 1.2em;
+}
+#card-area{
+    vertical-align: top;
+    display: inline-block;
+    width:270px;
+    /*background-color: antiquewhite;*/
+}
+
+.contact-card{
+    height:120px;
+    width:230px;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+    border:1px solid black;
+    box-shadow: 6px 7px 6px rgba(0,0,0,0.6);
+    margin-bottom: 10px;
+
+}
+.contact-card p{
+    margin:0px;
+}
+textarea{
+    width: 222px;
+    height:60px;
+}
+button{
+    font-size: 1.1em;
+    padding:10px;
+    margin-top: 10px;
+}
