@@ -1,0 +1,48 @@
+*{
+    font-family: sans-serif;
+    padding:0px;
+}
+h1{
+    border-bottom: 2px solid gray;
+}
+#house-row{
+    padding:10px 0px;
+    margin-top: 70px;
+}
+#main-title{
+    text-align: center;
+    position: fixed;
+    top:0px;
+    left:60px;
+    right:60px;
+}
+.house{
+    width:160px;
+    height:200px;
+    display: inline-block;
+    vertical-align: top;
+}
+#info-container{
+    position:fixed;
+    left: 60px;
+    right: 60px;
+    background: linear-gradient(lightblue,antiquewhite);
+    border: 2px solid gray;
+    border-radius: 8px;
+    margin-top: 10px;
+    min-height: 200px;
+    padding: 0px 40px;
+}
+img{
+    width:100%;
+}
+
+#Greyjoy img{
+    margin-top: -7px;
+    margin-left: -16px;
+    width: 122%;
+}
+
+#Hightower img, #Mallister img{
+    margin-top: -10px;
+}
