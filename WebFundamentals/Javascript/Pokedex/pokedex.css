@@ -1,10 +1,17 @@
+body{
+    background: linear-gradient(black,#222);
+
+}
 #wrapper{
     font-family: sans-serif;
 }
 
 #pokemon-section{
     display: inline-block;
-    width:980px;
+    /*width:980px;*/
+    position: absolute;
+    left:0px;
+    right: 478px;
 }
 #pokedex{
     display: inline-block;
@@ -12,15 +19,17 @@
     padding: 75px 40px;
     background-color: red;
     vertical-align: top;  
-    box-shadow: 9px 17px 24px gray;
+    box-shadow: 9px 17px 24px rgba(0,0,0,0.4);
     border-radius: 90px;  
     border: 3px solid black;
     position: fixed;
+    right: 26px;
+    top: 15px;
 
 }
 #pokedex-content{
     padding-left: 40px;
-    background-color: white;
+    background: linear-gradient(white,white,lightgray);
     border-radius: 23px;
     border: 3px solid black;
     min-height: 560px;
