@@ -69,5 +69,6 @@ def partTwo(input):
         for innerItem in input[item]:
             # print innerItem
             print "{} - {} {} - {}".format(count, innerItem["first_name"], innerItem["last_name"], len(innerItem["first_name"] + innerItem["last_name"]))
+            count += 1
 
 partTwo(users)
