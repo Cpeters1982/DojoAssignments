@@ -12,7 +12,10 @@
       <h1>Welcome to the Great Number Game!</h1>
       <h3>I am thinking of a number between 1 and 100</h3>
       <div id="result-box">
-        <h3 id="number-reveal">{{session['number']}} was the number!</h3>
+        {% if session['guess'] == session['number']%}
+          <h3 id="number-reveal">{{session['number']}} was the number!</h3>
+        {% endif %}
+
         <h3 id="result-phrase">{{session['phrase']}}</h3>
         <form action="/reset" method="post">
           <input type="submit" id="reset-button" value="Play again!">
