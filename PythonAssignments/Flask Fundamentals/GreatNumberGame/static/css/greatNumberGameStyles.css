@@ -1,0 +1,42 @@
+#wrapper{
+  font-size: 1.8em;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#result-box{
+  display: inline-block;
+  padding: 120px 80px 0px 80px;
+  height: 260px;
+  width: 525px;
+  color:white;
+  background-color: red;
+  border: 2px solid black;
+}
+#number-reveal{
+  margin-top: -40px;
+  display: none;
+}
+
+#reset-button{
+  margin-top: 18px;
+  padding: 20px 0px;
+  display: none;
+  text-align: center;
+}
+
+input{
+  width: 200px;
+  font-size: 1em;
+  vertical-align: top;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+form{
+  vertical-align: top;
+}
+#submit-button{
+  font-size: .8em;
+  padding:5px;
+}
