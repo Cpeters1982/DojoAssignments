@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, flash
 
 
 app = Flask(__name__)
@@ -9,18 +9,32 @@ def main_page():
 
     return render_template('index.html')
 
-@app.route('/result', methods=["POST"])
-def submit():
+@app.route('/process', methods=["POST"])
+def process_validation():
 
-    print "clicked"
-    name = request.form['name']
-    location = request.form['location']
-    language = request.form['language']
-    comment = request.form['comment']
+    session['name'] = request.form['name']
+    session['location'] = request.form['location']
+    session['language'] = request.form['language']
+    session['comment'] = request.form['comment']
+
+    validation_failed = False
+
+    if len(session['name']) < 1:
+        flash("Name cannot be blank!")
+        validation_failed = True
+    if len(session['comment']) < 1:
+        flash("Comment cannot be blank")
+        validation_failed = True
+    if len(session['comment']) > 120:
+        flash("Comment cannot be longer than 120 characters!")
+        validation_failed = True
 
 
+    if validation_failed == True:
+        return redirect('/')
+    else:
+        return render_template('result.html')
 
 
-    return render_template('result.html', name=name, location=location, language=language, comment=comment)
 
 app.run(debug=True)

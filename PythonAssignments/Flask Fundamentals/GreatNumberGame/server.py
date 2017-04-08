@@ -27,7 +27,7 @@ def main_page():
         else:
             print "session guess: {} is equal to session number: {}".format(session['guess'], session['number'])
             print "Changing phrase to You got it right!"
-            session['phrase'] = "You got it right!"
+            session['phrase'] = "You got it right! Alright sucker, you buy the coffee!"
 
     return render_template('index.html')
 

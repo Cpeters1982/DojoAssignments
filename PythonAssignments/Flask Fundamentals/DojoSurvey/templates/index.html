@@ -8,12 +8,19 @@
   <body>
 
     <div id="wrapper">
-      <form action="/result" method="post">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p style="color:red;">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action="/process" method="post">
         <h4 class="row-item">Your Name:</h4>
         <input class="row-item" type="text" name="name">
         <h4 class="row-item">Dojo Location:</h4>
         <select class="row-item" name="location">
-            <option value="San_Jose">San Jose</option>
+            <option value="San Jose">San Jose</option>
             <option value="Chicago">Chicago</option>
         </select>
         <h4 class="row-item">Favorite Language:</h4>

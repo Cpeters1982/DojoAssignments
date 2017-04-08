@@ -1,0 +1,22 @@
+#wrapper{
+  margin:100px;
+  width: 500px;
+  /*text-align: center;*/
+}
+.row-item{
+  width:49%;
+  display: inline-block;
+}
+
+.button{
+  margin-top:20px;
+  margin-left: 453px;
+  text-align: right;
+}
+
+.error{
+  color:red;
+}
+.success{
+  color:green;
+}

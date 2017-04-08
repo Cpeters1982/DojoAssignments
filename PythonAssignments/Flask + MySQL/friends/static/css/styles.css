@@ -1,0 +1,17 @@
+#wrapper{
+  padding:20px;
+}
+
+.friend-box{
+  display: inline-block;
+  border: 2px solid black;
+  padding: 0px 20px;
+}
+form{
+  display: inline-block;
+}
+.delete-button{
+  margin-left: 14px;
+  background-color: red;
+  color: white;
+}
