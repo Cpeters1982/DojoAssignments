@@ -42,7 +42,7 @@ def validation_check():
 def display_email_list():
 
     emails = mysql.query_db("SELECT id, email, DATE_FORMAT(created_at, '%m/%d/%Y %l:%i %p') as created_at  from emails")
-    print emails
+    # print emails
     return render_template('emails.html', all_emails=emails)
 
 @app.route('/emails/<email_id>/delete', methods=['POST'])
