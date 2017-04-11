@@ -48,109 +48,9 @@ def enter_wall():
     retrived_comments = mysql.query_db(get_comments_query)
     print retrived_comments
 
-
-    dummy_data = [
-
-        {
-            "author":"Nick deLannoy",
-            "date":"12/12/12",
-            "content":"This is a message, This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.This is a message, this is a message. this is a message this is a message.this is a message. this is a message this is a message.",
-            "comments":[
-
-                {
-                "author":"Evie",
-                "date":"10/10/10",
-                "content":"This is a comment, this is a comment, this is a comment",
-                },
-                {
-                "author":"Joe",
-                "date":"10/10/10",
-                "content":"This is a comment, this is a comment, this is a comment",
-                },
-                {
-                "author":"Bob",
-                "date":"10/10/10",
-                "content":"This is a comment, this is a comment, this is a comment",
-                }
-            ]
-        },
-        {
-            "author":"Evie deLannoy",
-            "date":"12/12/15",
-            "content":"This is a message, this is a message. this is a message this is a message.",
-            "comments":[
-
-                {
-                "author":"Nick",
-                "date":"11/11/11",
-                "content":"This is a comment, this is a comment, this is a comment",
-                },
-                {
-                "author":"Joe",
-                "date":"12/12/12",
-                "content":"This is a comment, this is a comment, this is a comment",
-                },
-                {
-                "author":"Bob",
-                "date":"10/13/13",
-                "content":"This is a comment, this is a comment, this is a comment",
-                }
-            ]
-        }
-    ]
-
-#     if 'current_user' in session.keys():
-#         # print session['current_user']['id']
-#         # print "^ Checking This ^"
-#         get_user_info_query = "SELECT * FROM users WHERE id = :id"
-#         get_user_info_data = {'id':session['current_user']}
-#
-#         current_user = mysql.query_db(get_user_info_query, get_user_info_data)[0]
-#
-#         # print current_user
-#         # print type(current_user)
-#         # print len(current_user)
-#         # print current_user
-#         # print len(current_user)
-#         # print current_user['first_name']
-#         # print current_user['last_name']
-#         # print current_user['email']
-#         # print current_user['password']
-#
-#         session['first_name'] = current_user['first_name']
-#         session['last_name'] = current_user['last_name']
-#         session['email'] = current_user['email']
-
     return render_template("the_wall.html", messages=retrieved_messages, comments=retrived_comments)
     flash("The wall is under construction")
     return redirect('/')
-
-# @app.route('/user_page')
-# def show_user_home_page():
-#     if 'current_user' in session.keys():
-#         # print session['current_user']['id']
-#         # print "^ Checking This ^"
-#         get_user_info_query = "SELECT * FROM users WHERE id = :id"
-#         get_user_info_data = {'id':session['current_user']}
-#
-#         current_user = mysql.query_db(get_user_info_query, get_user_info_data)[0]
-#
-#         # print current_user
-#         # print type(current_user)
-#         # print len(current_user)
-#         # print current_user
-#         # print len(current_user)
-#         # print current_user['first_name']
-#         # print current_user['last_name']
-#         # print current_user['email']
-#         # print current_user['password']
-#
-#         session['first_name'] = current_user['first_name']
-#         session['last_name'] = current_user['last_name']
-#         session['email'] = current_user['email']
-#
-#     return render_template('user_page.html')
-
 
 @app.route('/process_login', methods=["POST"])
 def authenticate_login():
@@ -163,7 +63,6 @@ def authenticate_login():
     check_email_exists_query = "SELECT email FROM users WHERE email = :email"
     check_email_data = {'email':email}
     email_check = mysql.query_db(check_email_exists_query, check_email_data)
-
 
     if len(email) < 1:
         flash("Email cannot be left blank!")
@@ -187,18 +86,11 @@ def authenticate_login():
 
     user_info = mysql.query_db(get_user_info_query, get_user_info_data)[0]
 
-
     encrypted_password = md5.new(request.form['password'] + user_info['salt']).hexdigest()
-    # print user_info['salt']
-
-    # print encrypted_password
-    # print "==?  <-------------------"
-    # print user_info['password']
 
     if user_info['password'] != encrypted_password:
         flash("Incorrect password! Please try again")
         failed_authentication = True
-
 
     if failed_authentication:
         return redirect('/')
@@ -232,11 +124,9 @@ def process_registration():
         flash("Last name can only contain letters!")
         failed_validation = True
 
-
     check_email_exists_query = "SELECT email FROM users WHERE email = :email"
     check_email_data = {'email':email}
     email_check = mysql.query_db(check_email_exists_query, check_email_data)
-    # print "Email check -----> ", email_check
 
     if len(email) < 1:
         flash("Email is required!")
@@ -277,8 +167,6 @@ def process_registration():
     get_id_data = {'email':email}
 
     session['current_user'] = mysql.query_db(get_id_query, get_id_data)[0]['id']
-    # print session['current_user']
-    # print "^ Current user result ^"
 
     return redirect('/the_wall')
 
