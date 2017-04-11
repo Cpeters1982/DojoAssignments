@@ -1,0 +1,33 @@
+{% for message in messages%}
+  <div class="wall-content-chunk message-box">
+    <div class="message">
+      <h4>{{ message['author'] }} - {{ message['date'] }}</h4>
+      {% if message['user_id'] == session['current_user'] %}
+        <form class="delete-message-form" action="/delete/{{message['id']}}" method="post">
+          <input type="submit" value="Delete">
+        </form>
+      {% endif %}
+      <p>{{ message['content'] }}</p>
+    </div>
+    <div class="comment-box">
+      {% for comment in comments %}
+        {% if comment['message_id'] == message['id'] %}
+          <h5>{{ comment['author'] }} - {{ comment['date'] }}
+            {% if comment['user_id'] == session['current_user'] %}
+              <!-- {% with comment_id = comment['id'] %} -->
+              <a class="delete-comment-link" href="#" path="/delete_comment/{{comment['id']}}"> Delete</a>
+              <!-- {% endwith %} -->
+            {% endif %}
+          </h5>
+          <p>{{ comment['content'] }}</p>
+        {% endif %}
+      {% endfor %}
+      <h5>Post a comment</h5>
+      <form class="add-comment-form" action="/post_comment/{{ session['current_user'] }}" method="post">
+        <input type="hidden" name="message_id" value="{{message['id']}}">
+        <textarea name="comment"></textarea>
+        <input class="post-button" type="submit" value="Post a comment">
+      </form>
+    </div>
+  </div>
+{% endfor %}
