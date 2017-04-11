@@ -8,24 +8,25 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema login_and_registration
+-- Schema login_and_registration_db
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema login_and_registration
+-- Schema login_and_registration_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `login_and_registration` DEFAULT CHARACTER SET utf8 ;
-USE `login_and_registration` ;
+CREATE SCHEMA IF NOT EXISTS `login_and_registration_db` DEFAULT CHARACTER SET utf8 ;
+USE `login_and_registration_db` ;
 
 -- -----------------------------------------------------
--- Table `login_and_registration`.`users`
+-- Table `login_and_registration_db`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `login_and_registration`.`users` (
+CREATE TABLE IF NOT EXISTS `login_and_registration_db`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(255) NULL,
   `last_name` VARCHAR(255) NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(255) NULL,
+  `salt` VARCHAR(255) NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`))
