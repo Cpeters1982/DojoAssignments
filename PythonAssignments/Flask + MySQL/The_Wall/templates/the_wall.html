@@ -44,11 +44,9 @@
               {% for comment in comments %}
                 {% if comment['message_id'] == message['id'] %}
                   <h5>{{ comment['author'] }} - {{ comment['date'] }}
-                    <!-- {% if comment['user_id'] == session['current_user'] %}
-                      {% with comment_id = comment['id'] %}
-                      <a class="delete-comment-link" href="/delete_comment/{{comment_id}}"> Delete</a>
-                      {% endwith %}
-                    {% endif %} -->
+                    {% if comment['user_id'] == session['current_user'] %}
+                      <a class="delete-comment-link" href="/delete_comment/{{comment['id']}}"> Delete</a>
+                    {% endif %}
                   </h5>
                   <p>{{ comment['content'] }}</p>
                 {% endif %}

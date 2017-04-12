@@ -44,7 +44,7 @@ def enter_wall():
     retrieved_messages = mysql.query_db(get_messages_query)
     print retrieved_messages
 
-    get_comments_query = 'SELECT CONCAT(first_name, " ", last_name) AS author, comments.content, DATE_FORMAT(comments.created_at, "%M %D %Y") AS date, comments.user_id as user_id, comments.message_id as message_id FROM comments JOIN users ON (comments.user_id = users.id) ORDER BY comments.created_at'
+    get_comments_query = 'SELECT comments.id, CONCAT(first_name, " ", last_name) AS author, comments.content, DATE_FORMAT(comments.created_at, "%M %D %Y") AS date, comments.user_id as user_id, comments.message_id as message_id FROM comments JOIN users ON (comments.user_id = users.id) ORDER BY comments.created_at'
     retrived_comments = mysql.query_db(get_comments_query)
     print retrived_comments
 
