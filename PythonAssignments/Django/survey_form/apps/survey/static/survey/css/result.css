@@ -1,0 +1,33 @@
+body{
+  font-size: 2em;
+  text-align: center;
+}
+td{
+  padding: 10px 20px;
+  text-align: left;
+}
+#wrapper{
+  display: inline-block;
+}
+#message-box{
+  width:610px;
+  background-color: lightgreen;
+}
+p{
+  margin: 0px;
+}
+.box{
+  border: 1px solid black;
+  display: block;
+  padding: 20px 20px 30px;
+  margin-top: 20px;
+  text-align: left;
+}
+form{
+  margin-top: 100px;
+  text-align: right;
+  margin-right: 20px;
+}
+h2{
+  text-decoration: underline;
+}

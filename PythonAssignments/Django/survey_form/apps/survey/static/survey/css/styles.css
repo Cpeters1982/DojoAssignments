@@ -1,0 +1,33 @@
+
+body{
+  /*display: inline-block;*/
+  text-align: center;
+  margin-top: 200px;
+}
+#wrapper{
+  font-size: 2em;
+  display: inline-block;
+  text-align: justify;
+
+}
+form{
+  display: block;
+  border: 1px solid black;
+  padding:20px 30px 20px 24px;
+  width: 600px;
+}
+input, option, select, textarea{
+  font-size: 1em;
+  margin: 10px 0px;
+}
+.row{
+  display: block;
+}
+.row label, .row select, .row input{
+  display: inline-block;
+  width:47%;
+}
+textarea{
+  display: block;
+  width: 100%;
+}

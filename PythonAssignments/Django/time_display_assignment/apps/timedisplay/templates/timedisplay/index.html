@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time Display</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'timedisplay/css/styles.css' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="upper-box" class='box'>
+        <h6>The current time and date:</h6>
+      </div>
+      <div id="lower-box" class='box'>
+        <h1>{{request.session.upper_date}}</h1>
+        <h1>{{request.session.lower_date}}</h1>
+      </div>
+    </div>
+
+
+  </body>
+</html>
