@@ -18,38 +18,56 @@ class UserManager(models.Manager):
         messages = []
 
         try:
-            found_user = User.objects.get(email=email)
+            found_user = User.objects.get(email=postData['email'])
         except:
             found_user = False
 
+        print "found_user:"
+        print found_user
+
         if len(postData['email']) < 1:
+            print "Email is blank"
             messages.append("Email cannot be left blank!")
             failed_authentication = True
         elif not EMAIL_REGEX.match(postData['email']):
+            print "email doesn't match regex pattern"
             messages.append("Please enter a valid email!")
             failed_authentication = True
         elif not found_user:
+            print "found_user check came back false"
             messages.append("No user found with this email address. Please register new user.")
             failed_authentication = True
 
         if failed_authentication:
+            print "authentication failed before password check"
             return {'result':"failed_authentication", 'messages':messages}
 
-        if len(password) < 8:
+        if len(postData['password']) < 8:
+            print "password is less than 8 characters"
             messages.append("Password must be at least 8 characters")
             return {'result':"failed_authentication", 'messages':messages}
 
 
-        hashed_password = bcrypt.hashpw(str(password), str(found_user.salt))
+        hashed_password = bcrypt.hashpw(str(postData['password']), str(found_user.salt))
+
+        print "hashed password:"
+        print hashed_password
+
+        print "found_user passoword:"
+        print found_user.password
+
 
         if found_user.password != hashed_password:
+            print "found_user password doesn't match hashed password"
             messages.append("Incorrect password! Please try again")
             failed_authentication = True
 
 
         if failed_authentication:
+            print "authentication failed after password check"
             return {'result':"failed_authentication", 'messages':messages}
         else:
+            print "authentication succeeded, should be successfully logged in"
             messages.append('Successfully logged in!')
             return {'result':'success', 'messages':messages, 'user':found_user}
 
@@ -113,6 +131,7 @@ class UserManager(models.Manager):
 
 
 
+
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -127,10 +146,6 @@ class Secret(models.Model):
     content = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, related_name="secrets")
-
-class Like(models.Model):
-    user = models.ForeignKey(User, related_name="likes")
-    secret = models.ForeignKey(Secret, related_name="likes")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(User, related_name="secrets")
+    likes = models.ManyToManyField(User, related_name="likes")
+    

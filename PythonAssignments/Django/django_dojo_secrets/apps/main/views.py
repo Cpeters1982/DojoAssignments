@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 from django.contrib.messages import get_messages
 from django.contrib import messages
 import re, bcrypt
-from .models import User
+from .models import User, Secret
+from django.db.models import Count
 
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -44,9 +45,11 @@ def authenticate_login(request):
         }
 
         login_result = User.objects.login(post_data)
+        print login_result
 
 
         if login_result['result'] == "failed_authentication":
+            print "login result returned failed authentication"
             if 'messages' in login_result.keys():
                 for message in login_result['messages']:
                     messages.error(request, message)
@@ -61,7 +64,7 @@ def authenticate_login(request):
                 messages.error(request, "Something went wrong")
                 return redirect('/')
 
-            return redirect('/user_page')
+            return redirect('/secrets')
 
 
 
@@ -78,6 +81,7 @@ def process_registration(request):
         }
 
         register_result = User.objects.register(post_data)
+        print register_result
 
         if register_result['result'] == "failed_validation":
             if 'messages' in register_result.keys():
@@ -86,29 +90,68 @@ def process_registration(request):
             return redirect('/register')
         else:
             if 'user' in register_result.keys():
-                request.session['current_user'] = login_result['user'].id
+                request.session['current_user'] = register_result['user'].id
                 if 'messages' in register_result.keys():
                     for message in register_result['messages']:
                         messages.success(request, message)
             else:
                 messages.error(request, "Something went wrong")
                 return redirect('/register')
-            return redirect('/user_page')
+            return redirect('/secrets')
 
     return redirect('/register')
 
 
-def show_user_home_page(request):
+def show_secret_page(request):
 
     if "current_user" in request.session.keys():
 
         context = {
             "user":User.objects.get(pk=request.session['current_user']),
-            'messages':get_messages(request)
+            "messages":get_messages(request),
+            "secrets":Secret.objects.all().annotate(num_likes=Count('likes'))
         }
-        return render(request, 'main/user_page.html', context)
 
-    return render(request, 'main/user_page.html')
+        return render(request, 'main/secrets.html', context)
+    return render(request, 'main/secrets.html')
+
+def create_new_secret(request, user_id):
+
+    if request.method == "POST":
+
+        Secret.objects.create(content=request.POST['content'], author=User.objects.get(pk=user_id))
+
+    return redirect('/secrets')
+
+def delete_secret(request, secret_id):
+
+    # if request.method == "POST":
+    Secret.objects.get(pk=secret_id).delete()
+    return redirect('/secrets')
+
+
+def like_secret(request, secret_id, user_id):
+
+    secret = Secret.objects.get(pk=secret_id)
+    user = User.objects.get(pk=user_id)
+
+    if user not in secret.likes.all():
+        secret.likes.add(user)
+
+    return redirect('/secrets')
+
+def unlike_secret(request, secret_id, user_id):
+
+    secret = Secret.objects.get(pk=secret_id)
+    user = User.objects.get(pk=user_id)
+
+    if user in secret.likes.all():
+        secret.likes.remove(user)
+
+    return redirect('/secrets')
+
+
+
 
 def log_out_user(request):
     request.session.clear()

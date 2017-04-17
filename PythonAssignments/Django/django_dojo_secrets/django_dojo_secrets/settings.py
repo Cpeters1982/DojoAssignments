@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'login_and_registration_django.urls'
+ROOT_URLCONF = 'django_dojo_secrets.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'login_and_registration_django.wsgi.application'
+WSGI_APPLICATION = 'django_dojo_secrets.wsgi.application'
 
 
 # Database
