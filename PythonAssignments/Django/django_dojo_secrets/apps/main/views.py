@@ -109,11 +109,24 @@ def show_secret_page(request):
         context = {
             "user":User.objects.get(pk=request.session['current_user']),
             "messages":get_messages(request),
-            "secrets":Secret.objects.all().annotate(num_likes=Count('likes'))
+            "secrets":Secret.objects.all().annotate(num_likes=Count('likes')).order_by('-created_at')[:5]
         }
 
         return render(request, 'main/secrets.html', context)
     return render(request, 'main/secrets.html')
+
+def show_most_popular(request):
+    if "current_user" in request.session.keys():
+
+        context = {
+            "user":User.objects.get(pk=request.session['current_user']),
+            "messages":get_messages(request),
+            "secrets":Secret.objects.all().annotate(num_likes=Count('likes')).order_by('-num_likes')
+        }
+
+        return render(request, 'main/most_popular.html', context)
+    return render(request, 'main/most_popular.html')
+
 
 def create_new_secret(request, user_id):
 
@@ -123,14 +136,14 @@ def create_new_secret(request, user_id):
 
     return redirect('/secrets')
 
-def delete_secret(request, secret_id):
+def delete_secret(request, secret_id, return_loc):
 
     # if request.method == "POST":
     Secret.objects.get(pk=secret_id).delete()
-    return redirect('/secrets')
+    return redirect('/' + return_loc)
 
 
-def like_secret(request, secret_id, user_id):
+def like_secret(request, secret_id, user_id, return_loc):
 
     secret = Secret.objects.get(pk=secret_id)
     user = User.objects.get(pk=user_id)
@@ -138,9 +151,9 @@ def like_secret(request, secret_id, user_id):
     if user not in secret.likes.all():
         secret.likes.add(user)
 
-    return redirect('/secrets')
+    return redirect('/' + return_loc)
 
-def unlike_secret(request, secret_id, user_id):
+def unlike_secret(request, secret_id, user_id, return_loc):
 
     secret = Secret.objects.get(pk=secret_id)
     user = User.objects.get(pk=user_id)
@@ -148,7 +161,7 @@ def unlike_secret(request, secret_id, user_id):
     if user in secret.likes.all():
         secret.likes.remove(user)
 
-    return redirect('/secrets')
+    return redirect('/' + return_loc)
 
 
 
