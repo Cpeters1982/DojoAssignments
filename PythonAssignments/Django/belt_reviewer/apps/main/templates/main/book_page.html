@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{book.title}}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'main/css/book_page_styles.css' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="nav-bar">
+        <h3 class="nav-bar-item right-item" id="home-link"><a href="/home">Home</a></h3>
+        <h3 class="nav-bar-item right-item" id="logout-link"><a href="/logout">Logout</a></h3>
+      </div>
+      <div id="main">
+        <h1>{{book.title}}</h1>
+        <h3>Author: {{book.author.full_name}}</h3>
+        <div class="content-section" id="reviews-section">
+          <h2>Reviews:</h2>
+
+            {% for review in reviews %}
+              <div class="review">
+                <p>Rating:
+                {% for i in "x"|rjust:review.stars %}
+                  <img src="{% static 'main/img/star.png' %}" alt="star">
+                {% endfor %}</p>
+                <p><a href="/user/{{review.user.id}}">{{review.user.alias}}</a> says: <i>{{review.content}}</i></p>
+                <p>Posted on {{review.created_at}}
+                  {% if review.user.id == request.session.current_user %}
+                    <a href="/delete_review/{{review.id}}">Delete this Review</a>
+                  {% endif %}
+                </p>
+              </div>
+
+            {% endfor %}
+
+        </div>
+        <div class="content-section" id="add-review-section">
+          <h3>Add a review:</h3>
+          <form action="/add_review/{{book.id}}" method="post">
+            {% csrf_token %}
+            <textarea name="content" placeholder="Your review here..."></textarea>
+            <br>
+            <h4>Rating:
+            <select name="rating">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+            stars.</h4>
+            <input id="submit-review-button" type="submit" name="" value="Submit Review">
+          </form>
+        </div>
+      </div>
+
+
+
+    </div>
+  </body>
+</html>

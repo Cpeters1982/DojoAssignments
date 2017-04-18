@@ -1,0 +1,75 @@
+#wrapper{
+  padding:20px;
+  font-size: 2em;
+  font-family: sans-serif;
+  display: inline-block;
+  margin-left: 30px;
+
+}
+
+input{
+  font-size: 1.3em;
+}
+#submit-button{
+margin-right: 10px;
+}
+
+h3{
+  display: inline-block;
+}
+h5{
+  margin:0px;
+}
+#message-area{
+  margin-bottom: 40px;
+  margin-top: -40px;
+}
+
+.error-message{
+  background-color: red;
+  color: white;
+  margin: 0px;
+}
+
+.form-box{
+  vertical-align: top;
+  border: 1px solid black;
+  display: inline-block;
+  padding: 30px 15px 40px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+}
+.form-box-label{
+  font-size: 1em;
+  background-color: white;
+  position: relative;
+  display: inline-block;
+  padding: 0px 5px;
+  top:-53px;
+  right: -18px;
+}
+label{
+  /*border: 1px solid black;*/
+  width: 220px;
+  text-align: left;
+  display: inline-block;
+}
+prompt{
+  color: rgba(0, 0, 0, 0.5);
+  font-size: .6em;
+  display: block;
+  text-align: left;
+  padding:9px 0px;
+}
+
+.submit-button{
+  margin-right: 20px;
+}
+
+form{
+  text-align: right;
+}
+#register-link{
+  font-size: .8em;
+  margin-right: 10px;
+}

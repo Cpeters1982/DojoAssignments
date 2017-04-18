@@ -1,0 +1,95 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#wrapper{
+  font-family: sans-serif;
+}
+#main{
+  font-size: 1.2em;
+  padding-top: 50px;
+  padding-left: 27px;
+}
+
+#nav-bar{
+  padding: 20px;
+  /*border-bottom: 2px solid black;*/
+  position: fixed;
+  width: 100%;
+}
+.nav-bar-item{
+  display: inline-block;
+}
+
+.right-item{
+  position: fixed;
+  top:24px;
+}
+
+#logout-link{
+  right:40px;
+}
+#home-link{
+  right:145px;
+}
+
+.content-section{
+  margin-top: 40px;
+  /*border: 1px solid black;*/
+  display: inline-block;
+  height: 500px;
+  vertical-align: top;
+}
+#reviews-section{
+  width: 500px;
+  margin-right: 100px;
+}
+#add-review-section{
+  width: 350px;
+}
+form{
+  width: 100%;
+}
+textarea{
+  font-size: 1em;
+  width: 100%;
+  min-height: 80px;
+}
+h4{
+  margin: 5px 0px;
+}
+select{
+  position: relative;
+  top: -2px;
+}
+#submit-review-button{
+  /*display: block;*/
+  font-size: 1em;
+  padding: 5px 9px 6px;
+  float: right;
+  margin-top: 20px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+
+}
+.inner-content{
+  padding:20px;
+}
+.review{
+  border-top: 2px solid black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.review :first-child{
+  margin-top: 0px;
+}
+
+img{
+  width: 28px;
+  position: relative;
+  top: 5px;
+}
+p{
+  margin:10px 0px;
+}
