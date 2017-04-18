@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Adding New Book and Review</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'main/css/add_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/add_book_styles.css' %}">
   </head>
   <body>
     <div id="wrapper">
@@ -20,16 +20,16 @@
         <h3 class="nav-bar-item right-item" id="logout-link"><a href="/logout">Logout</a></h3>
       </div>
       <div id="main">
-        <h3>Add a New Book Title and a Review</h3>
+        <h2>Add a New Book Title and a Review</h2>
         <form action="/process_add_book" method="post">
           {% csrf_token %}
-          <label for="title">Book Title:</label>
-          <input type="text" name="title" value="">
+          <label class="main-label" for="title">Book Title:</label>
+          <input class="main-label" type="text" name="title" value="">
           <br>
-          <label>Author:</label>
+          <label class="main-label">Author:</label>
           <br>
             <div id="author-selection">
-              <label for="author-select">Choose from the list:</label>
+              <label class="sub-label" for="author-select">Choose from the list:</label>
               <select name="author-select">
                 <option> </option>
                 {% for author in authors %}
@@ -37,13 +37,13 @@
                 {% endfor %}
               </select>
               <br>
-              <label for="new-author">Or add a new author:</label>
+              <label class="sub-label" for="new-author">Or add a new author:</label>
               <input type="text" name="new-author" value="">
             </div>
-            <label for="review">Review:</label>
+            <label class="main-label" for="review">Review:</label>
             <textarea name="review"></textarea>
             <br>
-            <label for="rating">Rating:</label>
+            <label class="main-label" for="rating">Rating:</label>
             <select name="rating">
               <option value="5">5</option>
               <option value="4">4</option>
@@ -51,7 +51,7 @@
               <option value="2">2</option>
               <option value="1">1</option>
             </select>
-            <input type="submit" name="" value="Add Book and Review">
+            <input id="submit-button" type="submit" name="" value="Add Book and Review">
         </form>
 
 

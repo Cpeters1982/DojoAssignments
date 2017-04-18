@@ -38,9 +38,9 @@ def process_login(request):
         else:
             if 'user' in login_result.keys():
                 request.session['current_user'] = login_result['user'].id
-                if 'messages' in login_result.keys():
-                    for message in login_result['messages']:
-                        messages.success(request, message)
+                # if 'messages' in login_result.keys():
+                #     for message in login_result['messages']:
+                #         messages.success(request, message)
             else:
                 messages.error(request, "Something went wrong")
                 return redirect('/')

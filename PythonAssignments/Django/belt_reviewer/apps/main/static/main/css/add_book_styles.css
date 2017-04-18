@@ -1,0 +1,89 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#wrapper{
+  font-family: sans-serif;
+}
+#main{
+  font-size: 1.2em;
+  padding-top: 50px;
+  padding-left: 27px;
+}
+
+#nav-bar{
+  padding: 20px;
+  /*border-bottom: 2px solid black;*/
+  position: fixed;
+  width: 100%;
+}
+.nav-bar-item{
+  display: inline-block;
+}
+
+.right-item{
+  position: fixed;
+  top:24px;
+}
+
+#logout-link{
+  right:40px;
+}
+
+#home-link{
+  right: 145px;
+}
+
+h2{
+  margin:20px 0px 40px;
+}
+
+.content-section{
+  margin-top: 40px;
+  /*border: 1px solid black;*/
+  display: inline-block;
+  height: 500px;
+  vertical-align: top;
+}
+form{
+  margin-left: 20px;
+  display: inline-block;
+  border: 1px solid black;
+  padding:20px;
+}
+label{
+  display: inline-block;
+  width: 200px;
+  /*border: 1px solid black;*/
+  padding: 4px 0px;
+}
+.main-label{
+  font-weight: bold;
+}
+.sub-label{
+  font-size: .8em;
+  margin-left: 20px;
+  width: 180px;
+  margin-bottom: 5px;
+}
+#submit-button{
+  display: block;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+input, select{
+  font-size: 1em;
+
+}
+input{
+  width: 170px;
+}
+select{
+  width: 174px;
+}
+textarea{
+  display: block;
+  min-height: 80px;
+  width: 98%;
+}
