@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Employee Page</title>
+    <style media="screen">
+      body{
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h4><a href="/">Back</a></h4>
+    <h1>Employee Profile</h1>
+    <h2>ID: {{employee.id}}</h2>
+    <h2>First Name: {{employee.first_name}}</h2>
+    <h2>Last Name: {{employee.last_name}}</h2>
+    <h2>Email: {{employee.email}}</h2>
+    <br>
+    <h2>Num Subordinates: {{employee.num_subordinates}}</h2>
+    {% if employee.num_subordinates > 0 %}
+      <table border=1px cellpadding=10px>
+        <thead>
+          <tr>
+            <th>Relationship ID</th>
+            <th>Subordinate ID</th>
+            <th>Subordinate Name</th>
+            <th>View Subordinate</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for relationship in relationships %}
+            {% if relationship.boss == employee %}
+            <tr>
+              <td>{{relationship.id}}</td>
+              <td>{{relationship.underling.id}}</td>
+              <td>{{relationship.underling.first_name}}  {{relationship.underling.last_name}}</td>
+              <td>
+                <a href="{{relationship.underling.id}}">View Profile</a>
+              </td>
+
+            </tr>
+            {% endif %}
+
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+      <form action="/add_subordinate/{{employee.id}}" method="post">
+        {% csrf_token %}
+        <label for="add_subordinate">Add new subordinate:</label>
+        <select name="add_subordinate">
+          <option value="None"></option>
+          {% for e in other_employees %}
+            <option value="{{e.id}}">{{e.first_name}} {{e.last_name}}</option>
+          {% endfor %}
+        </select>
+        <input type="submit" name="" value="Add">
+      </form>
+    <h2>Num Superiors: {{employee.num_superiors}}</h2>
+    {% if employee.num_superiors > 0 %}
+      <table border=1px cellpadding=10px>
+        <thead>
+          <tr>
+            <th>Relationship ID</th>
+            <th>Superior ID</th>
+            <th>Superior Name</th>
+            <th>View Superior</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for relationship in relationships %}
+            {% if relationship.underling == employee %}
+            <tr>
+              <td>{{relationship.id}}</td>
+              <td>{{relationship.boss.id}}</td>
+              <td>{{relationship.boss.first_name}}  {{relationship.boss.last_name}}</td>
+              <td>
+                <a href="{{relationship.boss.id}}">View Profile</a>
+              </td>
+            </tr>
+            {% endif %}
+
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+    <form action="/add_superior/{{employee.id}}" method="post">
+      {% csrf_token %}
+      <label for="add_superior">Add new superior:</label>
+      <select name="add_superior">
+        <option value="None"></option>
+        {% for e in other_employees %}
+          <option value="{{e.id}}">{{e.first_name}} {{e.last_name}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" name="" value="Add">
+    </form>
+  </body>
+</html>
