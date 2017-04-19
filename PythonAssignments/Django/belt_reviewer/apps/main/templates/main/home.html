@@ -10,8 +10,8 @@
     <div id="wrapper">
       <div id="nav-bar">
         <h2 class="nav-bar-item">Welcome {{user.full_name}}!</h2>
-        <h3 class="nav-bar-item right-item" id="add-book-link"><a href="/new_book">Add Book and Review</a></h3>
-        <h3 class="nav-bar-item right-item" id="logout-link"><a href="/logout">Logout</a></h3>
+        <h3 class="nav-bar-item right-item" id="add-book-link"><a href="{% url 'new_book' %}">Add Book and Review</a></h3>
+        <h3 class="nav-bar-item right-item" id="logout-link"><a href="{% url 'logout' %}">Logout</a></h3>
       </div>
       <div id="main">
         <div class="content-section">
@@ -19,13 +19,13 @@
           <div class="inner-content">
             {% for review in reviews %}
               <div class="review">
-                <h3><a href="/book/{{review.book.id}}">{{review.book.title}}</a></h3>
+                <h3><a href="{% url 'book_page' book_id=review.book.id %}">{{review.book.title}}</a></h3>
                 <div class="review-inner">
                   <p>Rating:
                   {% for i in "x"|rjust:review.stars %}
                     <img src="{% static 'main/img/star.png' %}" alt="star">
                   {% endfor %}</p>
-                  <p><a href="/user/{{review.user.id}}">{{review.user.alias}}</a> says: <i>{{review.content}}</i></p>
+                  <p><a href="{% url 'user_page' user_id=review.user.id %}">{{review.user.alias}}</a> says: <i>{{review.content}}</i></p>
                   <p>Posted on {{review.created_at}}</p>
                 </div>
               </div>
@@ -37,7 +37,7 @@
           <h3>Other Books with Reviews</h3>
           <div id="book-list">
             {% for book in books %}
-              <p><a href="/book/{{book.id}}">{{book.title}}</a></p>
+              <p><a href="{% url 'book_page' book_id=book.id %}">{{book.title}}</a></p>
             {% endfor %}
           </div>
         </div>

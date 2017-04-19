@@ -16,6 +16,8 @@
   border-bottom: 2px solid black;
   position: fixed;
   width: 100%;
+  background-color: white;
+  z-index: 2;
 }
 .nav-bar-item{
   display: inline-block;
@@ -53,6 +55,7 @@ img{
   width: 28px;
   position: relative;
   top: 5px;
+  z-index: 1;
 }
 p{
   margin:10px 0px;

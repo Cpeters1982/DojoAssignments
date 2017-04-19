@@ -9,8 +9,8 @@
   <body>
     <div id="wrapper">
       <div id="nav-bar">
-        <h3 class="nav-bar-item right-item" id="home-link"><a href="/home">Home</a></h3>
-        <h3 class="nav-bar-item right-item" id="logout-link"><a href="/logout">Logout</a></h3>
+        <h3 class="nav-bar-item right-item" id="home-link"><a href="{% url 'home' %}">Home</a></h3>
+        <h3 class="nav-bar-item right-item" id="logout-link"><a href="{% url 'logout' %}">Logout</a></h3>
       </div>
       <div id="main">
         <h1>{{book.title}}</h1>
@@ -24,10 +24,10 @@
                 {% for i in "x"|rjust:review.stars %}
                   <img src="{% static 'main/img/star.png' %}" alt="star">
                 {% endfor %}</p>
-                <p><a href="/user/{{review.user.id}}">{{review.user.alias}}</a> says: <i>{{review.content}}</i></p>
+                <p><a href="{% url 'user_page' user_id=review.user.id %}">{{review.user.alias}}</a> says: <i>{{review.content}}</i></p>
                 <p>Posted on {{review.created_at}}
                   {% if review.user.id == request.session.current_user %}
-                    <a href="/delete_review/{{review.id}}">Delete this Review</a>
+                    <a href="{% url 'delete_review' review_id=review.id %}">Delete this Review</a>
                   {% endif %}
                 </p>
               </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="content-section" id="add-review-section">
           <h3>Add a review:</h3>
-          <form action="/add_review/{{book.id}}" method="post">
+          <form action="{% url 'add_review' book_id=book.id %}" method="post">
             {% csrf_token %}
             <textarea name="content" placeholder="Your review here..."></textarea>
             <br>

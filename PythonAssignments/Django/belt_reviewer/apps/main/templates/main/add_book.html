@@ -16,12 +16,12 @@
         </div>
       {% endif %}
       <div id="nav-bar">
-        <h3 class="nav-bar-item right-item" id="home-link"><a href="/home">Home</a></h3>
-        <h3 class="nav-bar-item right-item" id="logout-link"><a href="/logout">Logout</a></h3>
+        <h3 class="nav-bar-item right-item" id="home-link"><a href="{% url 'home' %}">Home</a></h3>
+        <h3 class="nav-bar-item right-item" id="logout-link"><a href="{% url 'logout' %}">Logout</a></h3>
       </div>
       <div id="main">
         <h2>Add a New Book Title and a Review</h2>
-        <form action="/process_add_book" method="post">
+        <form action="{% url 'process_add_book' %}" method="post">
           {% csrf_token %}
           <label class="main-label" for="title">Book Title:</label>
           <input class="main-label" type="text" name="title" value="">
