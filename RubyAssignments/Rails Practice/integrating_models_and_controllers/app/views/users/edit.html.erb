@@ -1,0 +1,19 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+<hr>
+
+<h1>Edit User with ID: <%= @id %></h1>
+
+<form action="/users/<%= @id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="first_name">First Name:</label>
+  <%= @user.first_name %>
+  <input type="text" name="user[first_name]" value="<%= @user.first_name %>">
+  <br>
+  <label for="last_name">Last Name:</label>
+  <%= @user.last_name %>
+  <input type="text" name="user[last_name]" value="<%= @user.last_name %>">
+  <br>
+  <input type="submit" name="" value="Update!">
+
+</form>
