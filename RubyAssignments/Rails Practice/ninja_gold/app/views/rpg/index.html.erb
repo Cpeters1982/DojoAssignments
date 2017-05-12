@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+    <title>Ninja Gold</title>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="gold-status">
+        <h5>Your Gold:</h5>
+        <h5 id="gold-counter"><%= session[:money] %></h5>
+    </div>
+    <div id="option-select-area">
+        <div class="option-box">
+            <h3>Farm</h3>
+            <h5>(earns 10-20 gold)</h5>
+            <form action="/rpg/farm" method="post">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input class="find-gold-button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="option-box">
+            <h3>Cave</h3>
+            <h5>(earns 5-10 gold)</h5>
+            <form action="/rpg/cave" method="post">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input class="find-gold-button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="option-box">
+            <h3>House</h3>
+            <h5>(earns 2-5 gold)</h5>
+            <form action="/rpg/house" method="post">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input class="find-gold-button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="option-box">
+            <h3>Casino</h3>
+            <h5>(earns/takes 0-50 gold)</h5>
+            <form action="/rpg/casino" method="post">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input class="find-gold-button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+    </div>
+    <h5>Activities:</h5>
+    <div id="activity-log">
+      <% session[:activity_list].each do |item| %>
+        <% unless item.include?("lost") || item.include?("can't") %>
+          <p class="green"><%= item %></p>
+        <% else %>
+          <p class="red"><%= item %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <form action="rpg/reset" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="submit" value="RESET">
+    </form>
+  </div>
+
+</body>
+</html>

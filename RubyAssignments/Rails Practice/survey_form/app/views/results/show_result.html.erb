@@ -1,0 +1,37 @@
+<h1>Results#show_result</h1>
+<p>Find me in app/views/results/show_result.html.erb</p>
+<hr>
+
+<div id="content-wrapper">
+  <div id="message-box" class="box">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+  <div id="results-box" class="box">
+    <h3>Submitted information</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td>Name:</td>
+          <td><%= @survey.name %></td>
+        </tr>
+        <tr>
+          <td>Dojo Location:</td>
+          <td><%= @survey.location %></td>
+        </tr>
+        <tr>
+          <td>Favorite Language:</td>
+          <td><%= @survey.language %></td>
+        </tr>
+        <tr>
+          <td>Comment:</td>
+          <td><%= @survey.comment %></td>
+        </tr>
+      </tbody>
+    </table>
+    <form class="" action="/" method="get">
+      <%= submit_tag("Go Back") %>
+    </form>
+  </div>
+</div>
