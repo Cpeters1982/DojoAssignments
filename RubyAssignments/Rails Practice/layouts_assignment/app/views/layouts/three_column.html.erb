@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LayoutsAssignment</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-4">
+      <%= yield :first_col %>
+    </div>
+    <div class="col-md-4">
+      <%= yield :second_col %>
+    </div>
+    <div class="col-md-4">
+      <%= yield :third_col %>
+    </div>
+  </div>
+</body>
+</html>

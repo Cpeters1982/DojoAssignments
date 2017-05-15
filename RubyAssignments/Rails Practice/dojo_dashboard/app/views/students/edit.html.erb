@@ -1,0 +1,9 @@
+
+<h1>Editing <%= @student.first_name %> <%= @student.last_name %></h1>
+
+<%= render 'form' %>
+
+<div class="links">
+  <%= link_to 'Back', dojo_student_path(:dojo_id => @dojo.id, :id => @student.id)%> |
+  <%= link_to 'Home', dojo_path(@dojo) %>
+</div>
