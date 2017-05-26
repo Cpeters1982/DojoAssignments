@@ -1,0 +1,40 @@
+<h1>Sign in Here</h1>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |note| %>
+    <p id="notice"><%= note %></p>
+  <% end %>
+<% end %>
+
+<form action="/users/login" method="post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <label>Username</label>
+  <input type="text" name="username" id="login_username">
+  <label>Password</label>
+  <input type="password" name="password" id="login_password">
+
+  <input type="submit" value="Login">
+</form>
+<br>
+
+<h1>Register</h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p class="error"><%= error %></p>
+  <% end %>
+<% end %>
+
+<form action = "/users" method = "post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <label>First Name</label>
+  <input type = "text" name = "user[username]" id = "user_username">
+  <label>First Name</label>
+  <input type = "text" name = "user[first_name]" id = "user_first_name">
+  <label>Last Name</label>
+  <input type="text" name="user[last_name]" id = "user_last_name">
+  <label>Password</label>
+  <input type="password" name="user[password]" id = "user_password">
+  <label>Confirm Password</label>
+  <input type="password" name="user[password_confirmation]" id = "user_password_confirmation">
+  <input type = "submit" value = "Create User">
+</form>
