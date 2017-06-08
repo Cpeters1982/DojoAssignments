@@ -1,3 +1,4 @@
 *.zip
 *.pyc
 *.mwb
+node_modules/

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <h1>Survey Form</h1>
+      <div id="form-wrapper">
+        <form id="survey-form" action="/results" method="post">
+          <label>Your Name:</label>
+          <input type="text" name="name" value="">
+          <br>
+          <label>Dojo Location:</label>
+          <input type="text" name="location" value="">
+          <br>
+          <label>Favorite Language:</label>
+          <input type="text" name="language" value="">
+          <br>
+          <label>Comment (optional):</label>
+          <br>
+          <textarea name="comment" rows="8" cols="80"></textarea>
+          <br>
+          <input type="submit" name="" value="Submit">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
