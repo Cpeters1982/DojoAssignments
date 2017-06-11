@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Beef</title>
+  </head>
+  <body>
+    <h1>BEEFTASTIC</h1>
+    <% if (cow){ %>
+      <p>Name: <%= cow.name %></p>
+      <p>Age: <%= cow.age %></p>
+      <p>Weight: <%= cow.weight %></p>
+      <a href="/beef/edit/<%= cow.id %>"><button type="button" name="button">REBEEF THIS BEEF</button></a>
+      <form action="/beef/destroy/<%= cow.id %>" method="post" style="display:inline;">
+        <input type="submit" name="" value="DEBEEF THIS BEEF">
+      </form>
+    <% } %>
+    <br>
+    <br>
+    <a href="/"><button>BACK TO BEEFALICIOUS</button></a>
+  </body>
+</html>

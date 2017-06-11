@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Beef</title>
+  </head>
+  <body>
+    <h1>REBEEFINATOR</h1>
+    <form action="/beef/<%= cow.id %>" method="post">
+      <input type="text" name="name" value="<%= cow.name %>">
+      <input type="number" name="age" value="<%= cow.age %>">
+      <input type="number" name="weight" value="<%= cow.weight %>">
+      <input type="submit" name="" value="REBEEF">
+    </form>
+    <br>
+    <a href="/beef/destroy/<%= cow.id %>"><button>UNBEEF THIS BEEF</button></a>
+    <br>
+    <br>
+    <a href="/"><button>BACK TO BEEFALICIOUS</button></a>
+  </body>
+</html>

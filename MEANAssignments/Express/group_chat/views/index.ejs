@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Group Chat</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body>
+    <h3>Conversation Board</h3>
+    <div id="message-container">
+      <table>
+        <tbody id="message-table-body">
+          <% for(var i = 0; i < messages.length; i += 1){ %>
+            <tr>
+              <td class="message-name-cell"><%= messages[i].name %></td>
+              <td class="message-text-cell"><%= messages[i].text %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div id="new-message-container">
+      <form id="new-message-form" action="/" method="post">
+        <input id="new-message" type="text" name="" value="" placeholder="Enter your message here">
+        <input type="submit" name="" value="Send">
+      </form>
+    </div>
+  </body>
+</html>
