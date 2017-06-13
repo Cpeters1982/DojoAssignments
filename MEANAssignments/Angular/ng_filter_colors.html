@@ -1,0 +1,29 @@
+<html ng-app='app'>
+<head>
+  <title></title>
+  <script src='./../node_modules/angular/angular.js'></script>
+  <script src='colors.js'></script>
+</head>
+<body>
+    <div ng-controller='colorsController'>
+      Search Colors: <input type="text" ng-model="filter_color">
+      <table>
+        <thead>
+          <tr>
+            <th>Color Name</th>
+            <th>HEX</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="color in colors | filter:filter_color | orderBy:'name'">
+            <td>{{color.name}}</td>
+            <td>{{color.hex}}</td>
+            <td class="color-cell" color="rgb{{color.rgb}}" style="background-color:rgb{{color.rgb}};width:400px;"></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+</body>
+</html>

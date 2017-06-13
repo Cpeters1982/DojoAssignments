@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title>Products and Orders</title>
+    <script src="./../../node_modules/angular/angular.js"></script>
+    <!-- <script src="./modules/modules.js"></script>
+    <script src="./factories/product.js"></script>
+    <script src="./controllers/products.js"></script>
+    <script src="./controllers/orders.js"></script> -->
+    <script type="text/javascript" src='bundle.js'></script>
+  </head>
+  <body>
+    <div ng-controller="productsController">
+      <table>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" ng-model="newProduct.name"></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td><input type="number" name="price" ng-model="newProduct.price"></td>
+          <td><button type="button" name="create_button" ng-click="addProduct()">Create product</button></td>
+        </tr>
+
+      </table>
+
+      <br><br>
+
+      <table border=1 cellpadding=5>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="product in products track by $index">
+          <td>{{product.name}}</td>
+          <td>{{product.price | currency:"$"}}</td>
+          <td><button type="button" name="delete_button" ng-click="removeProduct($index)">Delete</button></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div ng-controller="ordersController">
+      <table border=1 cellpadding=5>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Qty Available</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="product in products track by $index">
+          <td>{{product.name}}</td>
+          <td>{{product.price | currency:"$"}}</td>
+          <td>{{product.qty}}</td>
+          <td><button type="button" name="buy_button" ng-click="buyProduct($index)">Buy</button></td>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>
