@@ -13,6 +13,7 @@ module.exports = function(app){
 
     $scope.addUser = function(){
       userFactory.createUser($scope.newUser, setUsers);
+      //newuser
       $location.url('/list');
     }
 
