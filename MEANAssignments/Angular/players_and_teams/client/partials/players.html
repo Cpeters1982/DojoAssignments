@@ -1,0 +1,24 @@
+
+<div ng-controller="playersController">
+
+  <div ng-hide="show">
+    Name: <input type="text" name="name" ng-model="newPlayer.name">
+    <button type="button" name="button" ng-click="addPlayer()">Add Player</button>
+  </div>
+  <div ng-show="show">
+    <h1>Players assigned to team {{show}}</h1>
+  </div>
+
+
+
+  <table border=1 cellpadding=5>
+    <tr>
+      <th>Name</th>
+      <th ng-hide="show">Actions</th>
+    </tr>
+    <tr ng-repeat="player in players track by $index">
+      <td>{{player.name}}</td>
+      <td ng-hide="show"><button type="button" name="remove_button" ng-click="removePlayer($index)">Remove Player</button></td>
+    </tr>
+  </table>
+</div>
