@@ -92,19 +92,70 @@ class BST{
     return this.root.subtreeHeight();
   }
 
+  remove(val){
+    var prev = null
+    var current = this.root;
+    while(current && current.val != val){
+      if (current.val > val){
+        prev = current;
+        current = current.left;
+      }
+      if (current.val < val){
+        prev = current;
+        current = current.right;
+      }
+    }
+    if (!current){
+      return false
+    } else if (!current.left && !current.right){
+      if (prev.left == current){
+        prev.left = null;
+      } else {
+        prev.right = null;
+      }
+      return true
+    } else if(!current.right){
+      if (prev.left == current){
+        prev.left = current.left;
+      } else {
+        prev.right = current.left;
+      }
+      return true;
+    } else {
+      var smallest = current.right;
+      var prevSmallest = null;
+      while(smallest.left){
+        prevSmallest = smallest;
+        smallest = smallest.left;
+      }
+      current.val = smallest.val;
+      if (!prevSmallest){
+        current.right = smallest.right;
+      } else {
+        prevSmallest.left = smallest.right;
+      }
+      return true;
+    }
+
+
+  }
+
 
 
 }
 
 var newTree = new BST();
 
-var nums = [4,2,6,1,3,5,7,4.5, 4.25]
+var nums = [4,2,6,1,3,5,7,4.5, 4.25, 5.25]
 
 for (var x = 0; x < nums.length; x+=1){
   console.log(newTree.insert(nums[x]))
 }
-console.log(newTree)
+console.log(JSON.stringify(newTree, null, 4))
 
-console.log(newTree.next(4))
+newTree.remove(5);
+console.log(JSON.stringify(newTree, null, 4))
 
-console.log(newTree.height())
+// console.log(newTree.next(4))
+
+// console.log(newTree.height())
