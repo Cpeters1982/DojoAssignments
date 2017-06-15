@@ -1,0 +1,58 @@
+<div ng-controller="MessagesController">
+  <!-- {{messages}} -->
+
+  <form ng-submit="addMessage()" method="post">
+    <label>Name:</label>
+    <input type="text" name="name" value="" ng-model="newMessage.name">
+    <br>
+    <label>Message:</label>
+    <textarea name="text" rows="6" ng-model="newMessage.text"></textarea>
+    <br>
+    <div class="align-right">
+      <input type="submit" name="" value="Post message">
+    </div>
+  </form>
+
+    <div class="message" ng-repeat="message in messages">
+      <div class="message-header">
+        <h3>Name: {{message.name}}</h3>
+      </div>
+      <div class="message-header align-right">
+        <form ng-submit="deleteMessage(message._id)">
+          <input type="submit" name="" value="Delete">
+        </form>
+      </div>
+
+      <h3>Message: {{message.text}}</h3>
+      <div class="comments-container">
+
+        <div class="comment" ng-repeat="comment in message.comments">
+          <div class="message-header">
+            <p>Name: {{comment.name}}</p>
+          </div>
+          <div class="message-header align-right">
+            <form ng-submit="deleteComment(message._id, comment._id)">
+              <input type="submit" name="" value="Delete">
+            </form>
+          </div>
+
+          <p>Comment: {{comment.text}}</p>
+        </div>
+
+        <form ng-submit="addComment(message._id, newComment)" method="post">
+          <label>Name:</label>
+          <input type="text" name="name" ng-model="newComment.name">
+          <br>
+          <label>Comment:</label>
+          <textarea name="text" ng-model="newComment.text"></textarea>
+          <br>
+          <div class="align-right">
+            <input type="submit" name="" value="Post comment">
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+
+</div>

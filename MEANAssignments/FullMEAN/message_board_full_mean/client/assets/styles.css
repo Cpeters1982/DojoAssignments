@@ -1,0 +1,34 @@
+*{
+  font-family: sans-serif;
+}
+#wrapper{
+  width:60%;
+  margin:0 auto;
+}
+textarea{
+  width: 100%;
+}
+.comments-container{
+  padding-left: 40px;
+}
+.align-right{
+  text-align: right;
+}
+.message{
+  border: 1px solid black;
+  padding: 20px;
+}
+.message h3{
+  margin-top: 0px;
+}
+.message-header{
+  display: inline-block;
+  width: 49%;
+}
+.message-header p{
+  margin: 0px;
+}
+.comment{
+  border-top: 1px solid gray;
+  padding-top: 10px;
+}

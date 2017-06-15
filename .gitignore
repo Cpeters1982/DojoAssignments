@@ -2,3 +2,4 @@
 *.pyc
 *.mwb
 node_modules/
+bower_components/
