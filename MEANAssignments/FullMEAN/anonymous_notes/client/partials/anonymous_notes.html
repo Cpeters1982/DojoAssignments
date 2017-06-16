@@ -1,0 +1,28 @@
+<div ng-controller="NotesController" id="controller-div">
+  <!-- {{notes}} -->
+
+  <div id="new-note-container">
+    <table>
+      <tr>
+        <td class="label-cell"><label>Note:</label></td>
+        <td><input type="text" name="text" ng-model="newNote.text"></td>
+        <td class="button-cell"><button ng-click="addNote()">Add Note</button></td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div id='notes-container'>
+    <div class="note" ng-repeat="note in notes">
+      <div class="note-header align-right">
+        {{note.createdAt | date:'medium'}}
+      </div>
+
+      <p>{{note.text}}</p>
+
+    </div>
+  </div>
+
+
+
+</div>

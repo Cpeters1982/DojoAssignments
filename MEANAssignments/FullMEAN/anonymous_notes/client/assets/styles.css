@@ -1,0 +1,59 @@
+*{
+  font-family: sans-serif;
+}
+html,body, #controller-div, #view{
+  margin: 0px;
+  height: 100%;
+  overflow: hidden;
+}
+
+#wrapper{
+  width:60%;
+  height: 89%;
+  margin:0 auto;
+  border: 2px solid black;
+  padding: 15px;
+  background-color: lightgray;
+}
+#controller-div div{
+  background-color: white;
+
+}
+table{
+  width: 100%;
+  border: 2px solid black;
+  padding: 20px 10px;
+}
+td{
+  text-align: center;
+}
+td.label-cell{
+  width: 10%;
+}
+td.button-cell{
+  width: 20%;
+  min-width: 92px;
+}
+button{
+  width: 70%;
+}
+input{
+  width: 100%;
+}
+#notes-container{
+  border: 2px solid black;
+  margin-top: 14px;
+  overflow: scroll;
+  padding: 24px 10px;
+  height: calc(100% - 218px);
+}
+.align-right{
+  text-align: right;
+}
+
+.note{
+  box-sizing: border-box;
+  padding: 6px;
+  border: 2px solid black;
+  margin-bottom: 8px;
+}
