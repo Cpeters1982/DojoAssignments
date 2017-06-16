@@ -1,0 +1,16 @@
+<div class="rankings-container" ng-controller="rankingsController">
+  <div class="ranking" ng-repeat="ranking in rankings track by $index">
+    <table>
+      <tbody>
+        <tr>
+          <td class="ranking-cell">{{$index + 1}}</td>
+          <td class="img-cell">
+            <img src="{{ranking.img_path}}" alt="">
+            <p>{{ranking.name}}</p>
+          </td>
+          <td class="score-cell">Score: {{ranking.score}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

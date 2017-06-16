@@ -1,0 +1,36 @@
+<div id="battle-container" ng-controller="battleController">
+  <div class="player">
+    <div class="player1 get" ng-hide="readyPlayer1">
+      <h1>Player 1</h1>
+      <form ng-submit="githubProfileLookUp(usernameP1,1)">
+        GitHub Username: <input type="text" ng-model="usernameP1">
+        <p class="error-message" ng-if="errorP1">{{errorP1}}</p>
+        <br ng-if="!errorP1">
+        <button type="submit" name="button">Get Player 1</button>
+      </form>
+    </div>
+    <div class="player1 ready" ng-if = "readyPlayer1">
+      <img src="{{player1.img_path}}"class="profile-image" alt="PLAYER 1">
+      <p>{{player1.name}}</p>
+    </div>
+  </div>
+  <div class="player">
+    <div class="player2 get" ng-hide="readyPlayer2">
+      <h1>Player 2</h1>
+      <form ng-submit="githubProfileLookUp(usernameP2,2)">
+        GitHub Username: <input type="text" ng-model="usernameP2">
+        <p class="error-message" ng-if="errorP2">{{errorP2}}</p>
+        <br ng-if="!errorP2">
+        <button type="submit" name="button">Get Player 2</button>
+      </form>
+
+    </div>
+    <div class="player2 ready" ng-if="readyPlayer2">
+      <img src="{{player2.img_path}}"class="profile-image" alt="PLAYER 2">
+      <p>{{player2.name}}</p>
+    </div>
+
+  </div>
+  <button id="battle-button" ng-if="readyPlayer1 && readyPlayer2" ng-click="battle(player1, player2)"> Battle! </button>
+
+</div>

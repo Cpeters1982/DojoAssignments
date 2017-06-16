@@ -1,0 +1,55 @@
+*{
+  font-family: sans-serif;
+}
+html,body, #controller-div, #view{
+  /*margin: 0px;
+  height: 100%;
+  overflow: hidden;*/
+}
+body{
+  padding-top: 30px;
+}
+
+#wrapper{
+  width:80%;
+  margin:0 auto;
+  border: 2px solid black;
+  padding: 15px;
+  background-color: lightgray;
+  box-sizing: border-box;
+}
+
+#battle-container{
+  text-align: center;
+
+}
+
+.player{
+  display: inline-block;
+  vertical-align: top;
+  width: 44%;
+  height:300px;
+  padding: 10px;
+  margin: 13px;
+  border: 2px solid black;
+  box-sizing: border-box;
+
+}
+.error-message{
+  color: red;
+}
+img{
+  width: 200px;
+}
+button#battle-button{
+  width: 60%;
+  font-size: 2.0em;
+  background-color: coral;
+  padding: 6px;
+  border-radius: 3px;
+  border: 0;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
+}
+
+
+}
