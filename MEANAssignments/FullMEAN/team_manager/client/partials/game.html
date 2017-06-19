@@ -1,0 +1,26 @@
+<!-- <h1>This is the game partial</h1> -->
+
+<h1>Player Status - Game {{game}}</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player Name</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="player in players">
+      <td>{{player.name}}</td>
+      <td>
+        <button class="playing" ng-class="{selected: determineSelected(player, 0)}" ng-click="updatePlayer(player._id, 0)">Playing</button>
+      </td>
+      <td>
+        <button class="not-playing" ng-class="{selected: determineSelected(player, 1)}" ng-click="updatePlayer(player._id, 1)">Not Playing</button>
+      </td>
+      <td>
+        <button class="undecided" ng-class="{selected: determineSelected(player,2)}" ng-click="updatePlayer(player._id, 2)">Undecided</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

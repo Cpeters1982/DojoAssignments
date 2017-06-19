@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="teamManager">
+  <head>
+    <meta charset="utf-8">
+    <title>Team Manager</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+
+  </head>
+  <body>
+    <div id="wrapper">
+    <h2><a href="#!/players/list">Manage Players</a> | <a href="#!/status/game/1">Manager Player Status</a></h2>
+
+    <div ng-view="" id="view">
+
+    </div>
+
+    </div>
+  </body>
+</html>
