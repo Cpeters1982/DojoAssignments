@@ -9,9 +9,12 @@
       <h3>{{loser.name}} (Score: {{loser.score}})</h3>
     </div>
   </div>
-  <div class="column">
+  <div class="column" id="winner-pic-div">
     <img src="{{winner.img_path}}" alt="{{winner.name}}">
     <p>{{winner.name}}</p>
   </div>
-  <button ng-click="reset()">Reset</button>
+  <div id="button-container">
+    <button ng-click="reset()">Reset</button>
+  </div>
+
 </div>

@@ -66,7 +66,7 @@ module.exports = function(app){
     factory.getResults = function(success){
       success(factory.results)
     }
-    factory.resetResults = function(sucess, redirect=null){
+    factory.resetResults = function(success, redirect=null){
       factory.results = {};
       success(factory.results)
       if (redirect){

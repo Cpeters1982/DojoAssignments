@@ -18,6 +18,7 @@ exports.all = function(req, res){
 exports.create = function(req, res){
 
   console.log("BODY OF REQUEST: ", req.body)
+  // Ranking.findOne({name:req.body.name}, function)
 
   var newRanking = new Ranking({name:req.body.name, score:req.body.score, img_path:req.body.img_path})
   newRanking.save(function(err){

@@ -16,14 +16,13 @@ module.exports = function(app){
     }
 
     var battleRoute = function(){
-      route.url('#!/')
+      route.url('/')
     }
 
     rankingFactory.getResults(setResults);
 
     $scope.reset = function(){
       rankingFactory.resetResults(setResults, battleRoute);
-
 
     }
 

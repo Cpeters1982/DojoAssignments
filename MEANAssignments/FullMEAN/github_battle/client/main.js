@@ -10,5 +10,5 @@ setupBattleController(app)
 var setupResultsController = require('./controllers/resultsController.js')
 setupResultsController(app)
 
-// var setupRankingsController = require('./controllers/rankingsController.js')
-// setupRankingsController(app)
+var setupRankingsController = require('./controllers/rankingsController.js')
+setupRankingsController(app)

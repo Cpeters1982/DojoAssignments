@@ -51,6 +51,26 @@ module.exports = function(app){
 
 },{}],2:[function(require,module,exports){
 module.exports = function(app){
+  app.controller('rankingsController', ['$scope', 'rankingFactory', function($scope, rankingFactory){
+
+    $scope.rankings = [];
+
+    var setRankings = function(data){
+      if(data){
+        $scope.rankings = data;
+      } else {
+        console.log("Something went wrong")
+        $scope.rankings = [];
+      }
+    }
+
+    rankingFactory.getRankings(setRankings);
+
+  }])
+}
+
+},{}],3:[function(require,module,exports){
+module.exports = function(app){
   app.controller('resultsController', ['$scope', 'rankingFactory', '$location', function($scope, rankingFactory, route){
 
     $scope.winner = {};
@@ -68,14 +88,13 @@ module.exports = function(app){
     }
 
     var battleRoute = function(){
-      route.url('#!/')
+      route.url('/')
     }
 
     rankingFactory.getResults(setResults);
 
     $scope.reset = function(){
       rankingFactory.resetResults(setResults, battleRoute);
-
 
     }
 
@@ -84,7 +103,7 @@ module.exports = function(app){
   }])
 }
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports = function(app){
 
   app.factory('rankingFactory', function($http){
@@ -153,7 +172,7 @@ module.exports = function(app){
     factory.getResults = function(success){
       success(factory.results)
     }
-    factory.resetResults = function(sucess, redirect=null){
+    factory.resetResults = function(success, redirect=null){
       factory.results = {};
       success(factory.results)
       if (redirect){
@@ -173,7 +192,7 @@ module.exports = function(app){
 
 }
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 
 var app = require('./modules/app.js')
 
@@ -186,10 +205,10 @@ setupBattleController(app)
 var setupResultsController = require('./controllers/resultsController.js')
 setupResultsController(app)
 
-// var setupRankingsController = require('./controllers/rankingsController.js')
-// setupRankingsController(app)
+var setupRankingsController = require('./controllers/rankingsController.js')
+setupRankingsController(app)
 
-},{"./controllers/battleController.js":1,"./controllers/resultsController.js":2,"./factories/ranking.js":3,"./modules/app.js":5}],5:[function(require,module,exports){
+},{"./controllers/battleController.js":1,"./controllers/rankingsController.js":2,"./controllers/resultsController.js":3,"./factories/ranking.js":4,"./modules/app.js":6}],6:[function(require,module,exports){
 
 var app = angular.module('gitHubBattle', ['ngRoute'])
 
@@ -211,4 +230,4 @@ app.config(function($routeProvider){
 
 module.exports = app
 
-},{}]},{},[4]);
+},{}]},{},[5]);
