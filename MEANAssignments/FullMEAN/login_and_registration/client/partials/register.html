@@ -1,0 +1,28 @@
+<form ng-submit="registerUser()">
+  <label>Email:</label>
+  <input type="text" name="email" ng-model="newUser.email">
+  <span class="error-message" ng-if="errors.emailTaken">A user already exists with this email. Please log in.</span>
+  <span class="error-message" ng-if="errors.email">{{errors.email}}</span>
+  <br>
+  <label>First Name:</label>
+  <input type="text" name="first_name" ng-model="newUser.first_name">
+  <span class="error-message" ng-if="errors.first_name">{{errors.first_name}}</span>
+  <br>
+  <label>Last Name:</label>
+  <input type="text" name="last_name" ng-model="newUser.last_name">
+  <span class="error-message" ng-if="errors.last_name">{{errors.last_name}}</span>
+  <br>
+  <label>Password:</label>
+  <input type="password" name="password" ng-model="newUser.password">
+  <span class="error-message" ng-if="errors.password">{{errors.password}}</span>
+  <br>
+  <label>Password Confirmation:</label>
+  <input type="password" name="password_confirmation" ng-model="password_confirmation">
+  <span class="error-message" ng-if="errors.passwordConfirm">Passwords must match</span>
+  <br>
+  <label>Birthday:</label>
+  <input type="date" name="birthday" ng-model="newUser.birthday">
+  <span class="error-message" ng-if="errors.birthday">{{errors.birthday}}</span>
+  <br>
+  <input type="submit" name="" value="Register">
+</form>
