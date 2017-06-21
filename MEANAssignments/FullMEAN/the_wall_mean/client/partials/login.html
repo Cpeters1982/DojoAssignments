@@ -1,0 +1,24 @@
+<div ng-controller="loginController" id="wrapper">
+  <h2 id="login-register-links"><a href="#!/login" ng-class="{selected: login}">Login</a> | <a href="#!/register" ng-class="{selected: !login}">Register</a></h2>
+
+  <form ng-submit="loginUser()">
+    <table>
+      <tr>
+        <td><label>Email:</label></td>
+        <td><input type="text" name="email" ng-model="loginData.email" placeholder="Email"></td>
+        <td><span class="error-message" ng-if="errors.email">{{errors.email}}</span></td>
+      </tr>
+      <tr>
+        <td><label>Password:</label></td>
+        <td><input type="password" name="password" ng-model="loginData.password" placeholder="Password"></td>
+        <td><span class="error-message" ng-if="errors.password">{{errors.password}}</span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="align-right"><input type="submit" name="" value="Login"></td>
+      </tr>
+    </table>
+
+
+  </form>
+</div>

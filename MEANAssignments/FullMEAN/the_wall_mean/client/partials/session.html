@@ -1,0 +1,5 @@
+<h2><a href="#!/login" ng-class="{selected: login}">Login</a> | <a href="#!/register" ng-class="{selected: !login}">Register</a></h2>
+
+<div ng-if="login" ng-include="'partials/login.html'"></div>
+
+<div ng-if="!login" ng-include="'partials/register.html'"></div>
